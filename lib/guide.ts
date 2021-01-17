@@ -1,3 +1,5 @@
+import { Emitter } from '@orange4glace/vs-lib/base/common/event';
+
 interface IGrid {
   gridSize: number;
   subgrids: number;
@@ -49,6 +51,9 @@ const defaultOption: IIGuideOption = {
 }
 
 export class Guide {
+
+  private onUpdate_ = new Emitter<void>();
+  readonly onUpdate = this.onUpdate_.event;
 
   private canvasEl_: HTMLCanvasElement;
   private ctx_: CanvasRenderingContext2D;
@@ -102,6 +107,18 @@ export class Guide {
     this.start_ = start;
     this.end_ = end;
     this.update();
+  }
+
+  calculateValueFromOffset(offsetX: number, offsetY: number) {
+    const units = this.end - this.start;
+    const unitPerLen = units / this.width;
+    return this.start + offsetX * unitPerLen;
+  }
+
+  calculatePositionFromValue(value: number) {
+    const units = this.end - this.start;
+    const lenPerUnit = this.width / units;
+    return (value - this.start) * lenPerUnit;
   }
 
   private findAppropriateGridSize(): IGrid {
@@ -161,6 +178,7 @@ export class Guide {
       }
     }
     this.ctx_.restore();
+    this.onUpdate_.fire();
   }
   
 }
