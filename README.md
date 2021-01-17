@@ -2,9 +2,9 @@
 
 <h2 align="middle">Guide</h2>
 <p align="middle">
-  <a href="https://www.npmjs.com/package/@scena/guides" target="_blank"><img src="https://img.shields.io/npm/v/@orange4glace/guide?style=flat-square" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/@orange4glace/guide" target="_blank"><img src="https://img.shields.io/npm/v/@orange4glace/guide?style=flat-square" alt="npm version" /></a>
   <img src="https://img.shields.io/badge/language-typescript-blue.svg?style=flat-square"/>
-  <a href="https://github.com/daybrush/guides/blob/master/LICENSE" target="_blank"><img src="https://img.shields.io/github/license/orange4glace/guide"/></a>
+  <img src="https://img.shields.io/github/license/orange4glace/guide"/>
 </p>
 
 <p align="middle" style="font-weight: bold">
