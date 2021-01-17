@@ -1,6 +1,7 @@
 const path = require('path');
+const nodeExternals = require('webpack-node-externals');
 
-module.exports = {
+const opts = {
   module: {
     rules: [
       {
@@ -28,15 +29,30 @@ module.exports = {
       lib: path.resolve(__dirname, 'lib'),
     },
   },
-  devtool: 'inline-source-map',
-  entry: './test/index.ts',
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+  devtool: 'source-map',
+}
+
+module.exports = [
+  {
+    ...opts,
+    entry: './lib/index.default.ts',
+    output: {
+      filename: 'guide.min.js',
+      path: path.resolve(__dirname, 'dist'),
+      library: 'Guide',
+      libraryExport: 'default',
+      libraryTarget: 'window'
+    }
   },
-  devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    compress: true,
-    port: 9000
+  {
+    ...opts,
+    entry: './lib/index.ts',
+    externals: [nodeExternals()],
+    output: {
+      filename: 'index.js',
+      path: path.resolve(__dirname, 'dist'),
+      library: 'Guide',
+      libraryTarget: 'umd'
+    }
   }
-};
+]

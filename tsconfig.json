@@ -7,8 +7,6 @@
 		"noImplicitReturns": true,
 		"forceConsistentCasingInFileNames": true,
 		"baseUrl": ".",
-    "declaration": true,
-		"declarationDir": "types",
     "outDir": "./dist",
     "rootDir": ".",
 		"lib": [

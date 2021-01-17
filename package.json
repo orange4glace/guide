@@ -2,16 +2,18 @@
   "name": "guide",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
   "scripts": {
-    "dev": "webpack serve",
-    "build": "webpack -c webpack.lib.config.js",
+    "dev": "webpack serve -c webpack.test.config.js",
+    "build": "rm -rf dist &&rm -rf types && webpack -c webpack.config.js && tsc -p tsconfig.types.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@orange4glace/biscrollbar": "file:../biscrollbar",
+    "@types/estree": "0.0.46",
     "css-loader": "^5.0.1",
     "sass": "^1.32.4",
     "sass-loader": "^10.1.1",
