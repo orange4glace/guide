@@ -13,7 +13,7 @@
   "author": "orange4glace",
   "license": "MIT",
   "devDependencies": {
-    "@orange4glace/biscrollbar": "file:../biscrollbar",
+    "@orange4glace/biscrollbar": "^1.0.3",
     "@types/estree": "0.0.46",
     "css-loader": "^5.0.1",
     "sass": "^1.32.4",
