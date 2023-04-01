@@ -180,5 +180,9 @@ export class Guide {
     this.ctx_.restore();
     this.onUpdate_.fire();
   }
+
+  destroy() {
+    this.canvasEl_.remove();
+  }
   
 }
